@@ -637,7 +637,7 @@ async function photoMenu(key: string, index: number) {
 }
 
 .currency {
-  border: 1.5px solid var(--pw-border);
+  border: 1.5px solid var(--pw-input-border);
   border-radius: var(--pw-radius-full);
   padding: 0 14px;
   min-height: 44px;

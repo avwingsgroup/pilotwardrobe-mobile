@@ -322,11 +322,16 @@ ion-button[fill='outline'] {
   --border-width: 1.5px;
 }
 
+/* The fill-outline class matches Ionic's own `:host(.input-fill-outline)` rule
+   (two classes), which would otherwise win and paint the default grey border. */
 ion-input.pw-input,
+ion-input.pw-input.input-fill-outline,
 ion-textarea.pw-input,
-ion-select.pw-input {
+ion-textarea.pw-input.textarea-fill-outline,
+ion-select.pw-input,
+ion-select.pw-input.select-fill-outline {
   --border-radius: var(--pw-radius-md);
-  --border-color: var(--pw-border-strong);
+  --border-color: var(--pw-input-border);
   --highlight-color-focused: var(--pw-primary);
   --background: var(--pw-surface);
   --padding-start: 16px;

@@ -29,6 +29,7 @@
   --pw-disabled: #c6cdd9;
   --pw-border: #e3e7ee;
   --pw-border-strong: #cfd5df;
+  --pw-input-border: #97adcf; /* text fields, selects */
   --pw-surface: #ffffff;
   --pw-surface-sunken: #f5f6f9;
   --pw-surface-muted: #f2f4f8;
@@ -118,6 +119,7 @@
   --pw-disabled: #3b4760;
   --pw-border: #1f2b44;
   --pw-border-strong: #2b3a59;
+  --pw-input-border: #2b3a59; /* D1/D2 dark field outline */
   --pw-surface: #131d33;
   --pw-surface-sunken: #0a1120;
   --pw-surface-muted: #18243d;

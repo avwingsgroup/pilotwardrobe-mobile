@@ -3,7 +3,9 @@
   DEBUG BUILDS ONLY (src/debug overrides src/main).
   Trusts user-installed CAs so a device/emulator can reach a local backend served
   with a development certificate (e.g. Laragon's CA for pilotwardrobe-api.test)
-  after that CA is installed on the device. Release builds never include this.
+  after that CA is installed on the device. Also allows plain HTTP to localhost
+  for live reload through `adb reverse` (npx cap run android -l). Release builds
+  never include this.
 -->
 <network-security-config>
     <base-config cleartextTrafficPermitted="false">
@@ -12,4 +14,7 @@
             <certificates src="user" />
         </trust-anchors>
     </base-config>
+    <domain-config cleartextTrafficPermitted="true">
+        <domain includeSubdomains="false">localhost</domain>
+    </domain-config>
 </network-security-config>

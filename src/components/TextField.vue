@@ -107,8 +107,8 @@ function onInput(event: CustomEvent) {
   font-weight: 400;
 }
 
-.field--error :deep(ion-input),
-.field--error :deep(ion-textarea) {
+.field--error :deep(ion-input.pw-input),
+.field--error :deep(ion-textarea.pw-input) {
   --border-color: var(--pw-danger-600);
 }
 

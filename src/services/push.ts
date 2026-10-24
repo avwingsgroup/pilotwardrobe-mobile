@@ -3,6 +3,7 @@ import { App } from '@capacitor/app'
 import { Device } from '@capacitor/device'
 import { PushNotifications, type ActionPerformed, type PushNotificationSchema, type Token } from '@capacitor/push-notifications'
 import { notificationsApi } from '@/api/notifications'
+import { tokenStore } from '@/api/token'
 import { useBadgesStore } from '@/stores/badges'
 import { logger } from './logger'
 import { preferences } from './preferences'
@@ -45,6 +46,9 @@ export async function initPushListeners(navigate: Navigate, onForeground: Foregr
 }
 
 async function sendTokenToBackend(token: string) {
+  // FCM also issues a token on first launch, before anyone signs in. Devices belong
+  // to a user, so wait: registerForPush() re-registers right after sign-in.
+  if (!tokenStore.current()) return
   try {
     const [info, app] = await Promise.all([Device.getInfo(), App.getInfo().catch(() => null)])
     const device = await notificationsApi.registerDevice({

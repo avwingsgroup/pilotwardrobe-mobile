@@ -130,7 +130,9 @@ function skip() {
 
 <style scoped>
 .onb {
-  min-height: 100%;
+  /* Exactly one screen: the image absorbs whatever height the text leaves, so
+     the dots, button and Skip always stay above the system navigation bar. */
+  height: 100%;
   display: flex;
   flex-direction: column;
   padding: calc(var(--ion-safe-area-top, 0px) + 16px) var(--pw-gutter) calc(var(--ion-safe-area-bottom, 0px) + 16px);
@@ -142,7 +144,8 @@ function skip() {
 }
 
 .onb__track {
-  flex: 1 1 auto;
+  flex: 1 1 0;
+  min-height: 0;
   display: flex;
   overflow-x: auto;
   scroll-snap-type: x mandatory;
@@ -161,6 +164,8 @@ function skip() {
   display: flex;
   flex-direction: column;
   gap: var(--pw-space-4);
+  min-height: 0;
+  overflow-y: auto;
 }
 
 .onb__accent {
@@ -174,7 +179,9 @@ function skip() {
 }
 
 .onb__img {
+  flex: 1 1 0;
   width: 100%;
+  min-height: 140px;
   max-height: 46vh;
   object-fit: cover;
   border-radius: var(--pw-radius-xl);
@@ -246,5 +253,23 @@ function skip() {
 .onb__skip {
   color: var(--pw-text-2);
   font-weight: 500;
+}
+/* Short phones: tighter rhythm so the feature labels stay visible. */
+@media (max-height: 700px) {
+  .onb__logo {
+    margin-bottom: var(--pw-space-3);
+  }
+  .onb__slide {
+    gap: var(--pw-space-3);
+  }
+  .onb__feature-icon {
+    width: 40px;
+    height: 40px;
+    font-size: 18px;
+  }
+  .onb__features li {
+    gap: 4px;
+    font-size: var(--pw-text-xs);
+  }
 }
 </style>
