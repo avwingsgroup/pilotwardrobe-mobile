@@ -33,3 +33,6 @@ ios/DerivedData/
 # Playwright
 test-results/
 playwright-report/
+
+# Locally built APKs for device testing
+dist-apk/
