@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  DEBUG BUILDS ONLY (src/debug overrides src/main).
+  Trusts user-installed CAs so a device/emulator can reach a local backend served
+  with a development certificate (e.g. Laragon's CA for pilotwardrobe-api.test)
+  after that CA is installed on the device. Release builds never include this.
+-->
+<network-security-config>
+    <base-config cleartextTrafficPermitted="false">
+        <trust-anchors>
+            <certificates src="system" />
+            <certificates src="user" />
+        </trust-anchors>
+    </base-config>
+</network-security-config>

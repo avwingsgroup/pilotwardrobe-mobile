@@ -1,0 +1,152 @@
+/*
+ * Pilotwardrobe design tokens — mobile.
+ * Light values are shared with the web client (sampled from the same brand frames);
+ * dark values are sampled from docs/mobile-designs/D1-dark.png and D2-dark.png.
+ * Components read only these variables (plus 1px hairlines) — no raw hex in screens.
+ */
+:root {
+  /* Brand */
+  --pw-navy-950: #0a2147;
+  --pw-navy-900: #0d2a57;
+  --pw-navy-800: #12305f;
+  --pw-navy-700: #16386e;
+  --pw-navy-600: #234376;
+  --pw-navy-500: #3d5a8a;
+  --pw-navy-300: #8093b3;
+  --pw-navy-100: #e9eff8;
+  --pw-navy-50: #f2f5fb;
+
+  --pw-gold-600: #b08a17;
+  --pw-gold-500: #c9a227;
+  --pw-gold-400: #e2c15a;
+  --pw-gold-100: #f8f0d6;
+
+  /* Neutrals */
+  --pw-ink: #101a2d;
+  --pw-ink-2: #344055;
+  --pw-muted: #5b6577;
+  --pw-subtle: #8a93a3;
+  --pw-disabled: #c6cdd9;
+  --pw-border: #e3e7ee;
+  --pw-border-strong: #cfd5df;
+  --pw-surface: #ffffff;
+  --pw-surface-sunken: #f5f6f9;
+  --pw-surface-muted: #f2f4f8;
+  --pw-overlay: rgb(16 26 45 / 70%);
+
+  /* Status */
+  --pw-success-700: #16714a;
+  --pw-success-600: #1c8a52;
+  --pw-success-100: #e6f4ec;
+  --pw-warning-700: #8f5d12;
+  --pw-warning-600: #b7791f;
+  --pw-warning-100: #fdf3e0;
+  --pw-danger-700: #a8322a;
+  --pw-danger-600: #c43d33;
+  --pw-danger-100: #fdebe9;
+
+  /* Semantic */
+  --pw-primary: var(--pw-navy-700);
+  --pw-primary-contrast: #ffffff;
+  --pw-primary-tint: var(--pw-navy-100);
+  --pw-accent: var(--pw-gold-500);
+  --pw-accent-contrast: var(--pw-navy-900);
+  --pw-text: var(--pw-ink);
+  --pw-text-2: var(--pw-muted);
+  --pw-text-3: var(--pw-subtle);
+  --pw-focus: #2f6fdb;
+  --pw-hero: linear-gradient(180deg, #102a57 0%, #1d3f7c 100%);
+
+  /* Typography (Space Grotesk display, Inter body — same as web) */
+  --pw-font-display: 'Space Grotesk Variable', 'Space Grotesk', ui-sans-serif, system-ui, sans-serif;
+  --pw-font-body: 'Inter Variable', 'Inter', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  --pw-font-mono: ui-monospace, 'SFMono-Regular', 'JetBrains Mono', Menlo, Consolas, monospace;
+
+  --pw-text-2xs: 0.6875rem; /* 11 badges */
+  --pw-text-xs: 0.75rem; /* 12 meta */
+  --pw-text-sm: 0.8125rem; /* 13 secondary */
+  --pw-text-base: 0.9375rem; /* 15 body */
+  --pw-text-md: 1rem; /* 16 inputs */
+  --pw-text-lg: 1.125rem; /* 18 card titles */
+  --pw-text-xl: 1.375rem; /* 22 section headings */
+  --pw-text-2xl: 1.625rem; /* 26 page titles */
+  --pw-text-3xl: 2rem; /* 32 hero titles */
+
+  /* Spacing — 4px grid */
+  --pw-space-1: 4px;
+  --pw-space-2: 8px;
+  --pw-space-3: 12px;
+  --pw-space-4: 16px;
+  --pw-space-5: 20px;
+  --pw-space-6: 24px;
+  --pw-space-8: 32px;
+  --pw-space-10: 40px;
+  --pw-gutter: 20px;
+
+  /* Radii (mobile frames use softer corners than web) */
+  --pw-radius-sm: 8px;
+  --pw-radius-md: 12px; /* inputs, small cards */
+  --pw-radius-lg: 16px; /* cards */
+  --pw-radius-xl: 22px; /* sheets */
+  --pw-radius-full: 999px; /* buttons, chips */
+
+  /* Elevation */
+  --pw-shadow-sm: 0 1px 3px rgb(16 26 45 / 8%), 0 1px 2px rgb(16 26 45 / 4%);
+  --pw-shadow-md: 0 6px 16px rgb(16 26 45 / 8%);
+  --pw-shadow-lg: 0 18px 48px rgb(16 26 45 / 18%);
+  --pw-shadow-fab: 0 8px 20px rgb(22 56 110 / 35%);
+
+  /* Sizing */
+  --pw-touch: 44px;
+  --pw-control-h: 56px;
+  --pw-button-h: 56px;
+  --pw-tabbar-h: 64px;
+
+  --pw-ease: cubic-bezier(0.2, 0, 0, 1);
+  --pw-duration: 200ms;
+
+  /* Image placeholder stripes (as in the frames) */
+  --pw-image-bg: repeating-linear-gradient(135deg, #eef1f6 0 14px, #e6eaf1 14px 28px);
+}
+
+/* Dark palette (D1/D2). Applied by Ionic's `ion-palette-dark` class on <html>. */
+.ion-palette-dark {
+  --pw-ink: #e8edf6;
+  --pw-ink-2: #c3cbd9;
+  --pw-muted: #95a1b6;
+  --pw-subtle: #6f7c93;
+  --pw-disabled: #3b4760;
+  --pw-border: #1f2b44;
+  --pw-border-strong: #2b3a59;
+  --pw-surface: #131d33;
+  --pw-surface-sunken: #0a1120;
+  --pw-surface-muted: #18243d;
+  --pw-overlay: rgb(3 7 16 / 75%);
+
+  --pw-navy-100: #1c2c4c;
+  --pw-navy-50: #16223b;
+  --pw-gold-100: #3a301a;
+  --pw-success-100: #13321f;
+  --pw-warning-100: #3a2c12;
+  --pw-danger-100: #3b1a19;
+  --pw-success-600: #3fb27a;
+  --pw-warning-600: #e0a54a;
+  --pw-danger-600: #ef6b61;
+
+  --pw-primary: #4e7fd0;
+  --pw-primary-contrast: #0a1120;
+  --pw-primary-tint: #1c2c4c;
+  --pw-accent: #e0b45c;
+  --pw-text: var(--pw-ink);
+  --pw-text-2: var(--pw-muted);
+  --pw-text-3: var(--pw-subtle);
+  --pw-hero: linear-gradient(180deg, #0d1a33 0%, #152a52 100%);
+  --pw-image-bg: repeating-linear-gradient(135deg, #16223b 0 14px, #1a2844 14px 28px);
+  --pw-shadow-fab: 0 8px 20px rgb(78 127 208 / 30%);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --pw-duration: 0ms;
+  }
+}

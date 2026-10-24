@@ -1,0 +1,35 @@
+node_modules/
+dist/
+coverage/
+*.log
+.DS_Store
+Thumbs.db
+
+# Local env overrides (may point at personal tunnels / LAN IPs)
+.env.local
+.env.*.local
+
+# Native build outputs
+android/app/build/
+android/.gradle/
+android/build/
+android/local.properties
+android/app/google-services.json
+android/*.jks
+android/*.keystore
+android/keystore.properties
+ios/App/Pods/
+ios/App/build/
+ios/App/App/GoogleService-Info.plist
+ios/DerivedData/
+*.p12
+*.mobileprovision
+
+# IDE
+.idea/
+.vscode/*
+!.vscode/extensions.json
+
+# Playwright
+test-results/
+playwright-report/

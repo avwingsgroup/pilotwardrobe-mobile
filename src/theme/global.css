@@ -1,0 +1,378 @@
+/* Base styles and small layout primitives shared by every screen. */
+
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  font-family: var(--pw-font-body);
+  color: var(--pw-text);
+  background: var(--pw-surface-sunken);
+  -webkit-font-smoothing: antialiased;
+}
+
+h1,
+h2,
+h3,
+h4,
+.pw-display {
+  font-family: var(--pw-font-display);
+  color: var(--pw-text);
+  letter-spacing: -0.01em;
+  margin: 0;
+}
+
+p {
+  margin: 0;
+}
+
+a {
+  color: var(--pw-primary);
+}
+
+:focus-visible {
+  outline: 2px solid var(--pw-focus);
+  outline-offset: 2px;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* ── Typography helpers ─────────────────────────────── */
+.pw-title {
+  font-size: var(--pw-text-2xl);
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.pw-hero-title {
+  font-size: var(--pw-text-3xl);
+  font-weight: 700;
+  line-height: 1.15;
+}
+
+.pw-section-title {
+  font-family: var(--pw-font-display);
+  font-size: var(--pw-text-xl);
+  font-weight: 700;
+}
+
+.pw-eyebrow {
+  font-size: var(--pw-text-sm);
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--pw-text-3);
+}
+
+.pw-body {
+  font-size: var(--pw-text-base);
+  line-height: 1.55;
+  color: var(--pw-text-2);
+}
+
+.pw-muted {
+  color: var(--pw-text-2);
+}
+
+.pw-subtle {
+  color: var(--pw-text-3);
+}
+
+.pw-mono {
+  font-family: var(--pw-font-mono);
+}
+
+.pw-price {
+  font-family: var(--pw-font-display);
+  font-weight: 700;
+  color: var(--pw-primary);
+}
+
+.pw-strike {
+  text-decoration: line-through;
+  color: var(--pw-text-3);
+}
+
+.pw-link {
+  color: var(--pw-primary);
+  font-weight: 600;
+  background: none;
+  border: 0;
+  padding: 0;
+  font: inherit;
+  font-weight: 600;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+/* ── Layout ─────────────────────────────────────────── */
+.pw-pad {
+  padding: var(--pw-space-5) var(--pw-gutter);
+}
+
+.pw-stack {
+  display: flex;
+  flex-direction: column;
+  gap: var(--pw-space-4);
+}
+
+.pw-stack-sm {
+  display: flex;
+  flex-direction: column;
+  gap: var(--pw-space-2);
+}
+
+.pw-row {
+  display: flex;
+  align-items: center;
+  gap: var(--pw-space-3);
+}
+
+.pw-row-between {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--pw-space-3);
+}
+
+.pw-scroll-x {
+  display: flex;
+  gap: var(--pw-space-2);
+  overflow-x: auto;
+  scroll-snap-type: x proximity;
+  scrollbar-width: none;
+  padding-inline: var(--pw-gutter);
+  margin-inline: calc(var(--pw-gutter) * -1);
+}
+
+.pw-scroll-x::-webkit-scrollbar {
+  display: none;
+}
+
+.pw-grid-2 {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--pw-space-3);
+}
+
+@media (min-width: 640px) {
+  .pw-grid-2 {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 900px) {
+  .pw-grid-2 {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+
+/* Constrain content on tablets so phone layouts don't stretch edge to edge. */
+.pw-container {
+  max-width: 720px;
+  margin-inline: auto;
+}
+
+/* Sticky footer actions that respect the home indicator / gesture bar. */
+.pw-footer {
+  padding: var(--pw-space-3) var(--pw-gutter) calc(var(--pw-space-3) + var(--ion-safe-area-bottom, 0px));
+  background: var(--pw-surface-sunken);
+}
+
+ion-footer.pw-footer-bar {
+  box-shadow: none;
+}
+
+ion-footer.pw-footer-bar ion-toolbar {
+  --background: var(--pw-surface-sunken);
+  --border-width: 0;
+  --padding-start: var(--pw-gutter);
+  --padding-end: var(--pw-gutter);
+  --padding-top: var(--pw-space-3);
+  --padding-bottom: var(--pw-space-3);
+}
+
+/* ── Surfaces ───────────────────────────────────────── */
+.pw-card {
+  background: var(--pw-surface);
+  border: 1px solid var(--pw-border);
+  border-radius: var(--pw-radius-lg);
+  padding: var(--pw-space-4);
+}
+
+.pw-card--flush {
+  padding: 0;
+  overflow: hidden;
+}
+
+.pw-callout {
+  display: flex;
+  gap: var(--pw-space-3);
+  align-items: flex-start;
+  background: var(--pw-primary-tint);
+  color: var(--pw-primary);
+  border-radius: var(--pw-radius-lg);
+  padding: var(--pw-space-4);
+  font-size: var(--pw-text-base);
+  line-height: 1.5;
+}
+
+.ion-palette-dark .pw-callout {
+  color: #c3d4f2;
+}
+
+.pw-callout--warning {
+  background: var(--pw-warning-100);
+  color: var(--pw-warning-700);
+  border: 1px solid color-mix(in srgb, var(--pw-warning-600) 35%, transparent);
+}
+
+.pw-callout--danger {
+  background: var(--pw-danger-100);
+  color: var(--pw-danger-700);
+  border: 1px solid color-mix(in srgb, var(--pw-danger-600) 30%, transparent);
+}
+
+.pw-callout--muted {
+  background: var(--pw-surface-muted);
+  color: var(--pw-text-2);
+}
+
+.pw-callout ion-icon {
+  flex: 0 0 auto;
+  font-size: 20px;
+  margin-top: 1px;
+}
+
+.pw-divider {
+  height: 1px;
+  background: var(--pw-border);
+  border: 0;
+  margin: 0;
+}
+
+.pw-kv {
+  display: flex;
+  justify-content: space-between;
+  gap: var(--pw-space-4);
+  padding: var(--pw-space-2) 0;
+  font-size: var(--pw-text-base);
+}
+
+.pw-kv dt {
+  color: var(--pw-text-2);
+}
+
+.pw-kv dd {
+  margin: 0;
+  text-align: right;
+  font-weight: 500;
+}
+
+/* ── Ionic component styling ───────────────────────── */
+ion-content {
+  --background: var(--pw-surface-sunken);
+}
+
+ion-content.pw-content-plain {
+  --background: var(--pw-surface);
+}
+
+ion-toolbar {
+  --min-height: 56px;
+}
+
+ion-title {
+  font-family: var(--pw-font-display);
+  font-weight: 700;
+}
+
+ion-header.pw-header-plain ion-toolbar {
+  --background: var(--pw-surface);
+  --border-width: 0;
+}
+
+ion-button {
+  --border-radius: var(--pw-radius-full);
+  --box-shadow: none;
+  font-weight: 600;
+  text-transform: none;
+  letter-spacing: 0;
+  min-height: var(--pw-touch);
+}
+
+ion-button.pw-btn-lg {
+  height: var(--pw-button-h);
+  font-size: var(--pw-text-md);
+  font-family: var(--pw-font-display);
+  font-weight: 700;
+}
+
+ion-button[fill='outline'] {
+  --border-width: 1.5px;
+}
+
+ion-input.pw-input,
+ion-textarea.pw-input,
+ion-select.pw-input {
+  --border-radius: var(--pw-radius-md);
+  --border-color: var(--pw-border-strong);
+  --highlight-color-focused: var(--pw-primary);
+  --background: var(--pw-surface);
+  --padding-start: 16px;
+  --padding-end: 16px;
+  font-size: var(--pw-text-md);
+  min-height: var(--pw-control-h);
+}
+
+ion-chip {
+  --border-radius: var(--pw-radius-full);
+  font-weight: 500;
+  margin: 0;
+  min-height: 36px;
+}
+
+ion-searchbar.pw-searchbar {
+  --background: var(--pw-surface-muted);
+  --border-radius: var(--pw-radius-full);
+  --box-shadow: none;
+  --placeholder-color: var(--pw-text-3);
+  padding: 0;
+}
+
+ion-modal.pw-sheet {
+  --border-radius: var(--pw-radius-xl);
+  --backdrop-opacity: 0.6;
+}
+
+ion-segment.pw-tabs {
+  --background: transparent;
+}
+
+ion-segment.pw-tabs ion-segment-button {
+  --indicator-color: var(--pw-primary);
+  --color: var(--pw-text-3);
+  --color-checked: var(--pw-primary);
+  font-weight: 600;
+  text-transform: none;
+  letter-spacing: 0;
+  min-height: 48px;
+}
+
+ion-toggle {
+  --track-background-checked: var(--pw-primary);
+}
+
+ion-refresher-content {
+  --color: var(--pw-text-2);
+}
